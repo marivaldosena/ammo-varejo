@@ -1,0 +1,176 @@
+$xPadding: 0.75rem;
+$softBoder: 0.25rem;
+$roundedBorder: 1.25rem;
+$lineHeight: 1.5;
+$fontColor: #616161;
+$borderColor: #bdbdbd;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, sans-serif;
+
+  .App {
+    display: flex;
+    flex-direction: column;
+
+    .App__Cabecalho {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+
+      .App__Logo {
+        font-size: 1.2rem;
+        padding: 0.25rem $xPadding;
+      }
+      
+      input[type=search] {
+        -webkit-border-radius: $roundedBorder;
+        -moz-border-radius: $roundedBorder;
+        border-radius: $roundedBorder;
+        font-size: 1rem;
+        line-height: $lineHeight;
+        border: 1px solid #ced4da;
+        min-width: 25rem;
+        padding: 0.275rem $xPadding;
+      }
+    }
+
+    .App__Produto_Pesquisado {
+      font-size: 1.5rem;
+      color: $fontColor;
+      border: 1px solid #CFD8DC;
+      margin: 0.25rem 0.5rem;
+      background-color: #eceff1;
+      line-height: $lineHeight;
+      padding: 0.5rem $xPadding;
+      border-radius: $softBoder;
+    }
+
+    .App__Produto_Lista {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      
+      .App__Produto_Item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @media screen and (min-width: 576px) {
+          flex-direction: row;
+          align-items: flex-start;
+          width: 70%;
+        }
+
+        border: 1px solid #9E9E9E;
+        margin: 1px auto;
+
+        .App__Produto_Imagem {
+          img {
+            width: 256px;
+            height: 256px;
+            margin: 1px 0.75rem 1px 0;
+          }
+        }
+
+        .App__Produto_Item__Informacao {
+          display: flex;
+          align-items: center;
+
+          @media screen and(min-width: 576px) {
+            min-width: 70%;
+            min-height: 256px;
+          }
+
+          .App__Produto_Item__Descricao {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+
+            .App__Produto_Item__Tipo {
+              color: $fontColor;
+            }
+          }
+
+          .App__Produto_Item__Preco {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 50%;
+
+            .App__Produto_Item__Preco_Anterior {
+              text-decoration: line-through;
+              color: $fontColor;
+            }
+          }
+        }
+      }
+
+      .App__Produto_Nao_Encontrado {
+        span {
+          color: #F44336;
+          font-size: 1.2rem;
+        }
+      }
+      
+    }
+
+    .App__Produto_Lista__Mensagem {
+      line-height: $lineHeight;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      border-bottom: 2px solid #F57C00;
+      width: 20rem;
+      color: $fontColor;
+    }
+    
+    .App__Itens_Por_Pagina {
+      align-content: flex-end;
+      
+      select {
+        display: block;
+        height: calc(2.25rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: $fontColor;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid $borderColor;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      }
+    }
+
+    .App__Rodape {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.25rem;
+    }
+  }
+
+  .pagination {
+    display: inline-block;
+
+    .item {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    .item.active {
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .item:hover:not(.active) {
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+  }
+}
